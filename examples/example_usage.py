@@ -2,6 +2,13 @@ from icm20602 import ICM20602
 from time import sleep
 
 
+mpu = ICM20602()
+print(mpu.check_availability(verbose=True))
+mpu.close()
+mpu=None
+
+print("---")
+
 print("Raw example")
 mpu = ICM20602()
 for _ in range(5):
@@ -74,22 +81,3 @@ for _ in range(5):
     sleep(0.1)
 mpu.close()
 mpu = None
-
-print("---")
-
-# calibration example
-# beware, calibrations sets all to 0,
-# if not placed correctly, the initial readings will not be exactly as expected
-
-mpu = ICM20602()
-mpu.calibrate_sensor()
-mpu.enable_smoothing(smoothing_window=7)
-mpu.enable_dlpf(bandwidth=mpu.DLPFBandwidth.BW_20HZ)
-print("Calibration + Smoothing + DLPF example")
-for _ in range(5):
-    accel_g = mpu.read_accel_data()
-    gyro_g = mpu.read_gyro_data()
-    print(f"Accel: {accel_g}, Gyro: {gyro_g}")
-    sleep(0.1)
-mpu.close()
-mpu=None

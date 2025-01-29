@@ -107,14 +107,19 @@ class ICM20602:
             print(f"Error reading from register {reg}: {e}")
             raise
 
-    def check_availability(self):
+    def check_availability(self, verbose=False):
         """
         Check if the ICM-20602 sensor is available and correctly connected.
         """
         try:
             who_am_i = self.read_register(self.WHO_AM_I)[0]
-            available = who_am_i == 0x12 or who_am_i == 0xA9
-            return available
+            icm20602 = who_am_i == 0x12 or who_am_i == 0xA9
+            mpu6500 = who_am_i == 0x75 or who_am_i == 0x70
+            if verbose:
+                return 'icm20602 sensor is available' \
+                    if icm20602 else 'mpu6500 sensor is available' \
+                    if mpu6500 else 'no sensor is available'
+            return icm20602 or mpu6500
         except Exception as e:
             print(f"Error checking availability: {e}")
             return False
