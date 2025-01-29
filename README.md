@@ -31,9 +31,3 @@ Please check examples/ directory for usage
 Copyright (c) 2025 kagankongar  (kagan.kongar@gmail.com). 
 Available under the **MIT License**. For more information, 
 see LICENSE.
-
-.. |badge_license| image:: https://img.shields.io/github/license/kagankongar/icm20602
-    :alt: license: MIT
-    :target: https://github.com//kagankongar/icm20602/blob/master/LICENSE
-
-
