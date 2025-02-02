@@ -7,7 +7,7 @@ setup(
     install_requires=[
         'spidev'
     ],
-    author='Kagan Kongare',
+    author='Kagan Kongar',
     author_email='kagan.kongar@gmail.com',
     description='A Python library for ICM20602 sensor, Raspberry PI ready',
     long_description=open('README.md').read(),
