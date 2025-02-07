@@ -2,6 +2,8 @@
 
 ![PyPI](https://img.shields.io/pypi/v/icm20602.svg)
 ![License](https://img.shields.io/github/license/kagankongar/ICM20602.svg)
+![PyPi Downloads](https://img.shields.io/pypi/dw/icm20602)
+
 
 #### Python library for the icm-20602 and mpu-6500 IMU comm via spi, suitable for Raspberry Pi
 
