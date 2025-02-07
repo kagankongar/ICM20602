@@ -1,3 +1,5 @@
+from math import trunc
+
 from icm20602 import ICM20602
 from time import sleep
 
@@ -79,5 +81,16 @@ for _ in range(5):
     roll, pitch = mpu.calculate_inclination(accel_g)
     print(f"roll: {roll:.2f}, pitch: {pitch:.2f}")
     sleep(0.1)
+mpu.close()
+mpu = None
+
+# continious reading
+mpu = ICM20602()
+print("Continous reading, break to stop")
+while True:
+    accel_g = mpu.read_accel_data()
+    roll, pitch = mpu.calculate_inclination(accel_g)
+    print(f"roll: {roll:.2f}, pitch: {pitch:.2f}")
+    sleep(0.25)
 mpu.close()
 mpu = None
